@@ -1,0 +1,34 @@
+defaults: &defaults
+  warehouse_state_mapping:  
+    blr:  IN-KA
+    blr_wfld:  IN-KA
+    mum_bndi:  IN-MH
+    del: IN-ND
+    chen: IN-TN
+    kol: IN-WB
+    noi: IN-DL
+    pune: IN-MH
+    mum: IN-MH
+    bil: IN-HR
+    ghz: IN-UP
+  message_count: 0
+  limit_messages: FALSE
+  message_count_limit: 0
+  enable_et: TRUE
+  #partitioning_id: group_id
+  partitioning_id: event
+  topic_id: event
+  partition_count: 4
+  brokers: localhost:9092
+  client_name: ra-rb-buffer-producer
+
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+  limit_messages: TRUE
